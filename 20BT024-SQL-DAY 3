@@ -1,0 +1,38 @@
+create database BooksDB;
+create table Books (
+sno int primary key,
+title varchar (30),
+author varchar(30),
+genre varchar(30),
+publication_year int,
+price int);
+insert into Books value
+(1,"THE DARK TOWER "," STEPHEN KING","MALE",1852,16),
+(2,"MORTAL ENGINES","PHILIP REEVE","MALE",2001,11),
+(3,"THE SOUND AND THE FURY ","WILLIAM FAULKNER","MALE",1929,13),
+(4,"OF MICE AND MEN","JOHN STEINBECK","MALE",1785,4),
+(5,"Legacy","Lucia Berlin","FEMALE",1983,12);
+select * from Books;
+select * from Books order by title;
+update Books
+set price=15
+where sno=1;
+select * from Books;
+delete from Books where sno=2;
+select * from Books;
+create table Authors (
+s_no int primary key,
+author varchar(30),
+no_of_books_return int,
+native varchar(30),
+sno int);
+insert into Authors value
+(01," STEPHEN KING",73,"AMERICAN",1),
+(02,"PHILIP REEVE",195,"BRITISH",2),
+(03,"WILLIAM FAULKNER",100,"AMERICAN",3),
+(04,"JOHN STEINBECK",33,"AMERICAN",4),
+(05,"Lucia Berlin",77,"US",5);
+select * from Authors;
+select Books.sno,Books.title,Books.author,Books.title,Books.genre,Books.publication_year,Books.price from books
+inner join Authors
+on Books.sno=Authors.sno order by sno;
